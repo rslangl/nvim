@@ -1,5 +1,9 @@
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+-- Automcatically run PackerCompile
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
+  pattern = "packer.lua",
+  command = "source <afile> | PackerCompile",
+})
 
 return require('packer').startup(function(use)
   -- Plugin manager
@@ -28,7 +32,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     event = 'BufEnter',
-    requires = { { 'nvim-web-devicons' } }
+    requires = { 'nvim-web-devicons' }
   }
 
   -- Syntax highlighter
@@ -36,6 +40,9 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     { run = ':TSUpdate' }
   }
+
+  -- Autopairs
+  use 'windwp/nvim-autopairs'
 
   -- File picker/switcher
   use {
@@ -56,6 +63,9 @@ return require('packer').startup(function(use)
   -- Git
   use 'tpope/vim-fugitive'
 
+  -- Orgmode
+  use 'nvim-orgmode/orgmode'
+
   -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -64,11 +74,16 @@ return require('packer').startup(function(use)
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
-	
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
+      {
+        'hrsh7th/cmp-buffer',
+        after = 'nvim-cmp'
+      },
+      {
+        'hrsh7th/cmp-path',
+        after = 'nvim-cmp'
+      },
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lua' },

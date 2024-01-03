@@ -1,7 +1,19 @@
-require('nvim-treesitter.configs').setup {
+local status, ts = pcall(require, 'nvim-treesitter.configs')
+if not status then
+  print("Could not load plugin: treesitter")
+  return
+end
+
+ts.setup({
   
   -- Parsers
   ensure_installed = {
+    "markdown",
+    "typescript",
+    "javascript",
+    "yaml",
+    "json",
+    "toml",
     "c",
     "cpp",
     "lua",
@@ -35,4 +47,4 @@ require('nvim-treesitter.configs').setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-}
+})

@@ -1,4 +1,8 @@
-local harpoon = require("harpoon")
+local status, harpoon = pcall(require, "harpoon")
+if not status then
+  print("Could not load plugin: Harpoon2")
+  return
+end
 
 harpoon:setup()
 

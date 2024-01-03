@@ -1,4 +1,8 @@
-local toggleterm = require('toggleterm')
+local status, toggleterm = pcall(require, 'toggleterm')
+if not status then
+  print("Could not load plugin: toggleterm")
+  return
+end
 
 toggleterm.setup({
   size = 10,
