@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Move marked lines while in visual mode
-vim.keymap.set("v", "j", ":m '>+1<CR>gv=gv") 
+vim.keymap.set("v", "j", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Leave cursor at the same place when applying lines
@@ -41,7 +41,7 @@ end)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k>", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Terminal
@@ -57,5 +57,5 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Save
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
 
--- Quite
+-- Quit
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")

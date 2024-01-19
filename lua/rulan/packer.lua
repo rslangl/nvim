@@ -70,10 +70,12 @@ return require('packer').startup(function(use)
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
+
       -- LSP support
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
+
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
       {
