@@ -9,16 +9,13 @@ ts.setup({
   -- Parsers
   ensure_installed = {
     "markdown",
-    "typescript",
-    "javascript",
     "yaml",
     "json",
     "toml",
     "c",
     "cpp",
     "lua",
-    "rust",
-    "go"
+    "org"
   },
 
   -- Install parsers asynchronously
@@ -45,6 +42,6 @@ ts.setup({
 
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = { 'org' },
   },
 })
