@@ -30,4 +30,3 @@ return {
     lspconfig.nil_ls.setup({ capabilities = capabilities })
   end,
 }
-

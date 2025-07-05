@@ -1,6 +1,6 @@
 return {
   -- Core completion plugin
-  { "hrsh7th/nvim-cmp", event = "InsertEnter" },
+  { "hrsh7th/nvim-cmp", enabled = true, event = "InsertEnter" },
 
   -- LSP source for nvim-cmp, must load **after** nvim-cmp
   { "hrsh7th/cmp-nvim-lsp", dependencies = "nvim-cmp", event = "InsertEnter" },
