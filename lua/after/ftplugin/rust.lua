@@ -16,3 +16,8 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr }
 )
+
+-- vim.bo.expandtab = true
+-- vim.bo.shiftwidth = 4
+-- vim.bo.tabstop = 4
+
