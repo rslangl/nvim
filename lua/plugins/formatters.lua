@@ -9,6 +9,8 @@ return {
         terraform = { "terraform_fmt" },
         sh = { "shfmt" },
         yaml = { "prettier" },
+        lua = { "stylua" },
+        nix = { "alejandra" },
       },
       format_on_save = {
         lsp_fallback = true,
