@@ -28,5 +28,28 @@ return {
       },
     })
     lspconfig.nil_ls.setup({ capabilities = capabilities })
+
+    -- Kotlin LSP (kotlin-language-server)
+    local kotlin_ls_path = vim.fn.exepath("kotlin-language-server")
+    if kotlin_ls_path ~= "" then
+      lspconfig.kotlin_language_server.setup({
+        cmd = { kotlin_ls_path },
+        capabilities = capabilities,
+      })
+    else
+      vim.notify("kotlin-language-server not found in PATH", vim.log.levels.WARN)
+    end
+
+    -- Java LSP (jdtls)
+    local jdtls_path = vim.fn.exepath("jdtls")
+    if jdtls_path ~= "" then
+      lspconfig.jdtls.setup({
+        cmd = { jdtls_path },
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern("build.gradle", "settings.gradle", ".git"),
+      })
+    else
+      vim.notify("jdtls not found in PATH", vim.log.levels.WARN)
+    end
   end,
 }
