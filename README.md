@@ -35,3 +35,25 @@
 | `<leader>cD` | Show diagnostics for current buffer |                                   |
 | `[d` / `]d`  | Jump to prev/next diagnostic        | Quick navigation                  |
 
+## Commands
+
+### Log output
+
+LazyVim uses `noice.nvim` to manage and hide messages by default:
+
+```
+# View all recent logs, warnings, errors, and messages
+:Noice history
+
+# View only errors
+:Noice errors
+```
+
+Raw log files are found in '~/.local/state/nvim/log'.
+
+### Health checks
+
+```
+# Environment and plugin diagnostics
+:checkhealth
+```

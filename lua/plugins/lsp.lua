@@ -9,7 +9,7 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- LSP setups using Nix-provided binaries
-    lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+    -- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
     lspconfig.gopls.setup({ capabilities = capabilities })
     lspconfig.terraformls.setup({ capabilities = capabilities })
     lspconfig.ansiblels.setup({ capabilities = capabilities })
