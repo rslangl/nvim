@@ -71,6 +71,14 @@ return {
       capabilities = capabilities,
       on_attach = on_attach
     })
+    lspconfig.jdtls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+    lspconfig.kotlin_language_server.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
     lspconfig.lua_ls.setup({
       cmd = { vim.fn.exepath("lua-language-server") },
       capabilities = capabilities,
