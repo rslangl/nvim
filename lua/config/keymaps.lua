@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
 -- Run LSP code action
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action"})
+-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action"})
 
 -- Rust-specific debug action
 vim.keymap.set("n", "<leader>dr", function ()
