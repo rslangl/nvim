@@ -61,8 +61,6 @@ Raw log files are found in '~/.local/state/nvim/log'.
 
 ## Language-specific notes
 
-## Notes on Rust and Go
-
 - Rust: `rust-analyzer` is sufficient; `RustaceanVim` is not required.
 - Go: Plugin configuration is placed in `after/ftplugin/go.lua`, loaded only for Go buffers.
 - LSP keybindings are buffer-local and tied to `on_attach`.
