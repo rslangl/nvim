@@ -1,5 +1,5 @@
+-- Core completion plugin
 return {
-  -- Core completion plugin
   {
     "hrsh7th/nvim-cmp",
     enabled = true,
@@ -14,22 +14,26 @@ return {
     config = function ()
       local cmp = require("cmp")
       cmp.setup({
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
+        completion = {
+          autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+          keyword_length = 2,
         },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-Space>"] = cmp.mapping.complete(),
-          -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        mapping = {
+          ["<Space><CR>"] = cmp.mapping.complete(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
           ["<C-e>"] = cmp.mapping.abort(),
-        }),
-        sources = cmp.config.sources({
+        },
+        sources = {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
-        }),
+        },
+        window = {
+          documentation = cmp.config.window.bordered(),
+        }
       })
     end
   },

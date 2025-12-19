@@ -6,7 +6,6 @@
 
 | Keybinding     | Action                              | Notes                                       |
 | -------------- | ----------------------------------- | ------------------------------------------- |
-| `:Format`      | Manually format current buffer      | LazyVim wrapper for `conform.nvim.format()` |
 | `gq`           | Format selected range (in visual)   | Also triggers `conform`                     |
 | `:ConformInfo` | Show loaded formatters per filetype | Diagnostic command                          |
 
@@ -16,16 +15,18 @@
 | ------------------- | ----------------------------------- | ---------------------------------- |
 | `<Tab>` / `<S-Tab>` | Navigate completion list            | Snippet & cmp context-aware        |
 | `<C-Space>`         | Manually trigger completion menu    | Default cmp trigger                |
-| `<CR>`              | Confirm selected item (insert mode) | Uses `confirm_opts` set by LazyVim |
+| `<Space><CR>` | Manual completion trigger | Explicit trigger for suggestions |
+| `<CR>`              | Confirm selected item (insert mode) | Uses `confirm_opts`, selects first by default |
+| `<C-n>` / `<C-p>` | Navigate completion menu | Next / previous item in list |
 
 ### LSP  features (`nvim-lspconfig`)
 
 | Keybinding   | Action                              | Notes                             |
 | ------------ | ----------------------------------- | --------------------------------- |
-| `gd`         | Go to definition                    | Uses `telescope.nvim`             |
+| `gd`         | Go to definition                    | Uses attached LSP            |
 | `gD`         | Go to declaration                   | Basic LSP                         |
-| `gi`         | Go to implementation                | Uses `telescope.nvim`             |
-| `gr`         | Go to references                    | Uses `telescope.nvim`             |
+| `gi`         | Go to implementation                | Uses attached LSP            |
+| `gr`         | Go to references                    | Uses attached LSP            |
 | `K`          | Hover (docs)                        | Show signature / doc popup        |
 | `<leader>ca` | Code actions                        | Contextual fixes (rename, import) |
 | `<leader>rn` | Rename symbol                       | Inline rename via LSP             |
@@ -57,3 +58,14 @@ Raw log files are found in '~/.local/state/nvim/log'.
 # Environment and plugin diagnostics
 :checkhealth
 ```
+
+## Language-specific notes
+
+## Notes on Rust and Go
+
+- Rust: `rust-analyzer` is sufficient; `RustaceanVim` is not required.
+- Go: Plugin configuration is placed in `after/ftplugin/go.lua`, loaded only for Go buffers.
+- LSP keybindings are buffer-local and tied to `on_attach`.
+- Diagnostics are persistent and visible inline; automatic clearing in insert mode is disabled.
+- Completion suggestions appear automatically while typing and can be manually triggered.
+
