@@ -23,6 +23,7 @@ return {
       python = { "isort", "black" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       rust = { "rustfmt" },
+      kotlin = { "ktlint" },
       go = { "goimports", "gofmt" },
       terraform = { "terraform_fmt" },
       sh = { "shfmt" },
@@ -33,8 +34,10 @@ return {
     default_format_opts = {
       lsp_format = "fallback",
     },
-    -- Set up format-on-save
-    --format_on_save = { timeout_ms = 500 },
+    -- Disable format-on-save
+    format_on_save = {
+      lsp_fallback = false
+    },
     -- Customize formatters
     formatters = {
       shfmt = {
