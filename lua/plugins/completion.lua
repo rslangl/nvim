@@ -20,13 +20,13 @@ return {
         },
         mapping = {
           ["<Space><CR>"] = cmp.mapping.complete(),
-          ["<CR>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.confirm({ select = true })
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+          -- ["<CR>"] = cmp.mapping(function(fallback)
+          --   if cmp.visible() then
+          --     cmp.confirm({ select = true })
+          --   else
+          --     fallback()
+          --   end
+          -- end, { "i", "s" }),
           ["<C-n>"] = cmp.mapping.select_next_item(),
           ["<C-p>"] = cmp.mapping.select_prev_item(),
           ["<C-e>"] = cmp.mapping.abort(),

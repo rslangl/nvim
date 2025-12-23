@@ -79,6 +79,28 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
     })
+    lspconfig.clangd.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      init_options = {
+        buildDirectory = "build",
+      },
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--header-insertion=iwyu",
+      },
+    })
+    lspconfig.cmake.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+    lspconfig.zls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
     lspconfig.lua_ls.setup({
       cmd = { vim.fn.exepath("lua-language-server") },
       capabilities = capabilities,
@@ -92,6 +114,5 @@ return {
         },
       },
     })
-    -- lspconfig.nil_ls.setup({ capabilities = capabilities })
   end,
 }
